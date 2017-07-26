@@ -1,14 +1,45 @@
-<html>
-  <head>
-    <title>외출증</title>
-    <link href="css/field.css" rel="stylesheet"/>
-    <link href="css/upload.css" rel="stylesheet"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="js/upload.js"></script>
-  </head>
 
-  <body>
-    <div style="width:100%">
+
+
+<html>
+    <head>
+        <title>외출증</title>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="css/field.css" rel="stylesheet"/>
+		<link href="css/upload.css" rel="stylesheet"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="js/upload.js"></script>
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link href="http://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css">
+		<script>
+			function w3_open() {
+				document.getElementById("mySidebar").style.display = "block";
+			}
+			function w3_close() {
+				document.getElementById("mySidebar").style.display = "none";
+			}
+		</script>
+    </head>
+    <body>
+	
+	<!-- Sidebar -->
+	<div class="w3-sidebar w3-bar-block w3-dark-grey w3-animate-left" style="display:none" id="mySidebar">
+		<button class="w3-bar-item w3-button w3-large"
+		onclick="w3_close()">Close &times;</button>
+		<a href="#" class="w3-bar-item w3-button">홈</a>
+		<a href="#" class="w3-bar-item w3-button">외출/현장체험학습 신청</a>
+		<a href="#" class="w3-bar-item w3-button">노래 신청</a>
+		<a href="#" class="w3-bar-item w3-button">분실물 등록</a>
+	</div>
+
+	<!-- Page Content -->
+	<div>
+		<div class="w3-container w3-teal" style="display: flex;">
+			<button class="w3-button w3-xxlarge" onclick="w3_open()">&#9776;</button>
+			<h1>외출증 & 현장체험학습 신청서</h1>
+		</div>
+		<div style="width:100%">
       <form id="data" action="" method="post">
         <div style="float: left; width:47%; height:50%;">
           <fieldset>
@@ -32,8 +63,6 @@
         </div>
       </form>
     </div>
-
-
-  </body>
-
+	</div>
+    </body>
 </html>
