@@ -1,83 +1,73 @@
-
-
-
 <html>
     <head>
-		<style>
-		.wrap {
-    width:85%;
-    margin:0 auto;
-
-  }
-		</style>
-        <title>외출증</title>
+        <title>main page</title>
         <meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="http://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css">
+        <link rel="stylesheet" href="./css/materialize.min.css">
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="../js/materialize.min.js"></script>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link href="css/field.css" rel="stylesheet"/>
 		<link href="css/upload.css" rel="stylesheet"/>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="js/upload.js"></script>
-		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <link href="http://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css">
-		<script>
-			function w3_open() {
-				document.getElementById("mySidebar").style.display = "block";
-			}
-			function w3_close() {
-				document.getElementById("mySidebar").style.display = "none";
-			}
-		</script>
-    </head>
-    <body>
-	
-	<!-- Sidebar -->
-	<div class="w3-sidebar w3-bar-block w3-dark-grey w3-animate-left" style="display:none" id="mySidebar">
-		<button class="w3-bar-item w3-button w3-large"
-		onclick="w3_close()">Close &times;</button>
-		<a href="#" class="w3-bar-item w3-button">홈</a>
-		<a href="#" class="w3-bar-item w3-button">외출/현장체험학습 신청</a>
-		<a href="#" class="w3-bar-item w3-button">노래 신청</a>
-		<a href="#" class="w3-bar-item w3-button">분실물 등록</a>
-	</div>
+		<style>
+		  .wrap {
+			width:85%;
+			margin:0 auto;
 
-	<!-- Page Content -->
-	<div>
-		<div class="w3-container w3-teal" style="display: flex;">
-			<button class="w3-button w3-xxlarge" onclick="w3_open()">&#9776;</button>
-			<h1>외출증 & 현장체험학습 신청서</h1>
+		  }
+		</style>
+    </head>
+	<body>
+	<nav class="default" role="navigation">
+		<div class="nav-wrapper">
+			<a href="#!" class="brand-logo center">SDOS</a>
+			<a href="#" data-activates="mobile-demo" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
+			<ul class="right hide-on-med-and-down">
+				<li><a href="#">Login</a></li>
+				<li><a class="waves-effect red waves-light btn">Sign up</a></li>
+			</ul>
+			<ul class="side-nav" id="mobile-demo">
+				<li><a href="./main">홈</a></li>
+				<li><a href="./main">외출/현장체험학습 신청</a></li>
+				<li><a href="./main">노래 신청</a></li>
+				<li><a href="./main">분실물 등록</a></li>
+			</ul>
 		</div>
-		<div class="wrap" >
-      <form id="data" action="" method="post">
-        <div style="float: left; width:47%; height:50%;">
+		</nav>
+		<div class="wrap"><br><br>
+		<form id="data" action="" method="post">
           <fieldset>
             <input placeholder="이름" type="text" required autofocus>
 		  </fieldset>
 		  <fieldset>
-            <input placeholder="날짜" type="text" required>
+            <input placeholder="날짜" type="date" required>
 		  </fieldset>
 		  <fieldset>
             <input placeholder="장소" type="text" required>
 		  </fieldset>
 		  <fieldset>
             <div class="filebox bs3-primary preview-image">
-              <input class="upload-name" value="파일선택" disabled="disabled" style="width: 80%;">
-              <label for="input_file" style="text-align: center">업로드</label>
+              <input class="upn" value="선택된 파일 없음!" disabled="disabled">
+              <label for="input_file" style="color:#FFF">업로드</label>
               <input type="file" id="input_file" class="upload-hidden">
             </div>
           </fieldset>
-        </div>
-        <div style="float: right; width:47%; height:50%;">
-          <div class="">
             <fieldset>
               <textarea placeholder="사유" required></textarea>
 			</fieldset>
 			<fieldset>
-              <button type="submit" id="sub">확인</button>
+              <button type="submit" class="waves-effect waves-light btn">확인</button>
             </fieldset>
-          </div>
-        </div>
       </form>
-    </div>
-	</div>
-    </body>
+	  </div>
+	</body>
+	<script>
+		$('.button-collapse').sideNav({
+		  menuWidth: 300, // Default is 240
+		  edge: 'left', // Choose the horizontal origin
+		  closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+		});
+	</script>
 </html>
