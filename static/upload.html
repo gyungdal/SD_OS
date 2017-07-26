@@ -37,22 +37,32 @@
 		</nav>
 		<div class="wrap"><br><br>
 		<form id="data" action="" method="post">
+		<label>이름 입력</label>
           <fieldset>
             <input placeholder="이름" type="text" required autofocus>
 		  </fieldset>
 		  <fieldset>
+		  <label>외출 일시</label>
             <input placeholder="날짜" type="date" required>
 		  </fieldset>
+		  <fieldset>
+		  <label>귀사 일시</label>
+            <input placeholder="날짜" type="date" required>
+		  </fieldset>
+		  <label>외출 장소</label>
 		  <fieldset>
             <input placeholder="장소" type="text" required>
 		  </fieldset>
 		  <fieldset>
+		  <label>파일 첨부</label>
             <div class="filebox bs3-primary preview-image">
+			
               <input class="upn" value="선택된 파일 없음!" style="width: 75%;" disabled="disabled">
               <label for="input_file" style="color:#FFF; width: 23%; text-align:center">업로드</label>
               <input type="file" id="input_file" class="upload-hidden">
             </div>
           </fieldset>
+		  <label>외출 사유</label>
             <fieldset>
               <textarea placeholder="사유" required></textarea>
 			</fieldset>
