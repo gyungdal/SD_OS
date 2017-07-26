@@ -149,12 +149,60 @@ function init(app, pool){
             <i class="large material-icons">mode_edit</i>
         </a>
         <ul>
-            <li><a class="btn-floating red"><i class="material-icons">add_alert</i></a></li>
-            <li><a class="btn-floating yellow darken-1"><i class="material-icons">warning</i></a></li>
-            <li><a class="btn-floating blue"><i class="material-icons">assignment_late</i></a></li>
+            <li><a class="btn-floating red btn  modal-trigger" href="#postAlert"><i class="material-icons">add_alert</i></a></li>
+            <li><a class="btn-floating yellow darken-1 btn  modal-trigger" href="#postCount"><i class="material-icons">warning</i></a></li>
+            <li><a class="btn-floating blue btn modal-trigger" href="#postScore"><i class="material-icons">assignment_late</i></a></li>
         </ul>
     </div>
 
+   <!-- Modal Structure -->
+  <div id="postAlert" class="modal">
+  <form  action="./upload/alert" enctype="multipart/form-data" method="post">
+  <div class="modal-content">
+  <h4>방송 내용 업로드</h4>
+  </div>
+  <input placeholder="방송 내용" type="text" name="str"></input>
+  <div class="modal-footer">
+  <button type="submit" class=" modal-action modal-close waves-effect waves-green   btn-flat">저장</button>
+  </div>
+  </form>
+  </div>
+
+   <!-- Modal Structure -->
+  <div id="postCount" class="modal">
+  <form  action="./upload/pc_count" enctype="multipart/form-data" method="post">
+  <div class="modal-content">
+  <h4>PC 걸린 횟수 저장</h4>
+  </div>
+  <input type="number" name="count"></input>
+  <div class="modal-footer">
+  <button type="submit" class=" modal-action modal-close waves-effect waves-green   btn-flat">저장</button>
+  </div>
+  </form>
+  </div>
+  
+   <!-- Modal Structure -->
+  <div id="postScore" class="modal">
+  <form  action="./upload/score" enctype="multipart/form-data" method="post">
+  <div class="modal-content">
+  <h4>벌점 등록</h4>
+  </div>
+  <input placeholder="학번" type="number" name="number"></input>
+  <input placeholder="이름" type="text" name="name"></input>
+  <input placeholder="벌점" type="number" name="score"></input>
+  <div class="modal-footer">
+  <button type="submit" class=" modal-action modal-close waves-effect waves-green   btn-flat">저장</button>
+  </div>
+  </form>
+  </div>
+ <script>
+ $(document).ready(function(){
+ // the "href" attribute of .modal-trigger must specify the modal ID that   wants to be triggered
+ $('#postAlert').modal().modal('close');
+ $('#postCount').modal().modal('close');
+ $('#postScore').modal().modal('close');
+ });
+  </script>
     </body>
 </html>
 `

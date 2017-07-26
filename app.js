@@ -21,6 +21,7 @@ var pool  = mysql.createPool({
 
 require('./main.js').init(app, pool);
 require('./adminPage.js').init(app, pool);
+require('./score.js').init(app, pool);
 
 app.use('/photo', express.static('photo'));
 app.use('/document', express.static('document'));
@@ -53,13 +54,36 @@ app.post('/upload/gogo', upload.single('file'), function(req, res){
 });
 
 //게임 경고 현황 설정
-app.post('/set/pc_count', function(req, res){
-	console.log(req.body.count);
-	res.send('<script>history.go(-2);</script>');
+app.post('/upload/pc_count', upload.single('file'), function(req, res){
 	var fs = require('fs');
 	fs.writeFile('./count.txt', req.body.count, function(err) {
 		if(err) throw err;
 		console.log('File write completed');
+		res.send('<script>history.go(-1);</script>');
+	});
+});
+
+app.post('/upload/alert', upload.single('file'), function(req, res){
+	pool.getConnection(function(err, connection) {
+		connection.query( 'INSERT INTO NOTICE(TEXT) VALUES('
+		+ mysql.escape(req.body.str) + ')' , function(err, rows) {
+			connection.release();
+			res.send('<script>history.go(-1);</script>');
+			
+		});
+	});
+});
+
+app.post('/upload/score', upload.single('file'), function(req, res){
+	var sql = "INSERT INTO STUDENT (NUM, NAME, BAD_SCORE) VALUES (" + mysql.escape(req.body.number) + ','  +mysql.escape(req.body.name) + ',' 
+	+ mysql.escape(req.body.score) + ") ON DUPLICATE KEY UPDATE NUM=" + mysql.escape(req.body.number) + ", NAME=" 
+	+ mysql.escape(req.body.name) + ', BAD_SCORE=' + mysql.escape(req.body.score);
+	console.log(sql);
+	pool.getConnection(function(err, connection) {
+		connection.query(sql , function(err, rows) {
+			connection.release();
+			res.send('<script>history.go(-1);</script>');
+		});
 	});
 });
 

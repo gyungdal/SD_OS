@@ -81,7 +81,7 @@ function init(app, pool){
 															<p>${high_bad_score}</p>
 															</div>
 															<div class="card-action">
-															<a href="#">상세 페이지</a>
+															<a href="./score">상세 페이지</a>
 															</div>
 														</div>
 														</div>
