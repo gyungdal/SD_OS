@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lost</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="http://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css">
+    <link rel="stylesheet" href="./lost.css">
+    <script>
+        function w3_open() {
+            document.getElementById("mySidebar").style.display = "block";
+        }
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+        }
+    </script>
+    <style>
+        #textbox{
+            width: 10em;
+            height: 16em;
+        }
+        .input{
+            margin-left: 5%;
+        }
+
+        p{
+            padding-left: 5%;
+            font-size: 1.5em;
+            padding-top: 2%;
+        }
+        #submit{
+            font-size: 1.5em;
+
+        }
+    </style>
+</head>
+<body>
+
+<html>
+<body>
+
+<!-- Sidebar -->
+<div class="w3-sidebar w3-bar-block w3-dark-grey w3-animate-left" style="display:none" id="mySidebar">
+    <button class="w3-bar-item w3-button w3-large"
+            onclick="w3_close()">Close &times;</button>
+    <a href="#" class="w3-bar-item w3-button">홈</a>
+    <a href="#" class="w3-bar-item w3-button">외출/현장체험학습 신청</a>
+    <a href="#" class="w3-bar-item w3-button">노래 신청</a>
+    <a href="#" class="w3-bar-item w3-button">분실물 등록</a>
+</div>
+
+<!-- Page Content -->
+<div>
+    <div class="w3-container w3-teal" style="display: flex;">
+        <button class="w3-button w3-xxlarge" onclick="w3_open()">&#9776;</button>
+        <h1>분실물 등록</h1>
+    </div>
+        <div id="text_box">
+            <form action="#" method="post">
+                <p>물건 이름</p>
+                <input type="text" id="name" class="input">
+                <p>습득 날짜</p>
+                <input type="text" id="date" class="input">
+                <p>습득 장소</p>
+                <input type="text" id="where" class="input">
+                <p>보관 장소</p>
+                <input type="text" id="where2" class="input">
+            </form>
+        </div>
+        <div id="img_box">
+            <input type="text" id="textbox"  id="img_box_m">
+            <input type="submit" value="제출" name="제출" id="submit" class="input">
+        </div>
+</div>
+</body>
+</html>

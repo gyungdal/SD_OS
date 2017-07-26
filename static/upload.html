@@ -1,39 +1,72 @@
 <html>
-  <head>
-    <title>외출증</title>
-    <link href="css/field.css" rel="stylesheet"/>
-    <link href="css/upload.css" rel="stylesheet"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="js/upload.js"></script>
-  </head>
+    <head>
+        <title>main page</title>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="http://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css">
+        <link rel="stylesheet" href="./css/materialize.min.css">
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="./js/materialize.min.js"></script>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link href="css/upload.css" rel="stylesheet"/>
+		<script src="js/upload.js"></script>
+		<style>
+		  .wrap {
+			width:85%;
+			margin:0 auto;
 
-  <body>
-    <div style="width:100%">
-      <form id="data" action="" method="post">
-        <div style="float: left; width:47%; height:50%;">
+		  }
+		</style>
+    </head>
+	<body>
+	<nav class="default" role="navigation">
+		<div class="nav-wrapper">
+			<a href="#!" class="brand-logo center">SDOS</a>
+			<a href="#" data-activates="mobile-demo" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
+			<ul class="right hide-on-med-and-down">
+				<li><a href="#">Login</a></li>
+				<li><a class="waves-effect red waves-light btn">Sign up</a></li>
+			</ul>
+			<ul class="side-nav" id="mobile-demo">
+				<li><a href="./main">홈</a></li>
+				<li><a href="./main">외출/현장체험학습 신청</a></li>
+				<li><a href="./main">노래 신청</a></li>
+				<li><a href="./main">분실물 등록</a></li>
+			</ul>
+		</div>
+		</nav>
+		<div class="wrap"><br><br>
+		<form id="data" action="" method="post">
           <fieldset>
             <input placeholder="이름" type="text" required autofocus>
-            <input placeholder="날짜" type="text" required>
+		  </fieldset>
+		  <fieldset>
+            <input placeholder="날짜" type="date" required>
+		  </fieldset>
+		  <fieldset>
             <input placeholder="장소" type="text" required>
+		  </fieldset>
+		  <fieldset>
             <div class="filebox bs3-primary preview-image">
-              <input class="upload-name" value="파일선택" disabled="disabled" style="width: 80%;">
-              <label for="input_file" style="text-align: center">업로드</label>
+              <input class="upn" value="선택된 파일 없음!" style="width: 75%;" disabled="disabled">
+              <label for="input_file" style="color:#FFF; width: 23%; text-align:center">업로드</label>
               <input type="file" id="input_file" class="upload-hidden">
             </div>
           </fieldset>
-        </div>
-        <div style="float: right; width:47%; height:50%;">
-          <div class="">
             <fieldset>
               <textarea placeholder="사유" required></textarea>
-              <button type="submit" id="sub">확인</button>
+			</fieldset>
+			<fieldset>
+              <button type="submit" class="waves-effect red waves-light btn">확인</button>
             </fieldset>
-          </div>
-        </div>
       </form>
-    </div>
-
-
-  </body>
-
+	  </div>
+	</body>
+	<script>
+		$('.button-collapse').sideNav({
+		  menuWidth: 300, // Default is 240
+		  edge: 'left', // Choose the horizontal origin
+		  closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+		});
+	</script>
 </html>

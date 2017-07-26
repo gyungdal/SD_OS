@@ -3,35 +3,35 @@
         <title>main page</title>
         <meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link href="http://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css">
-		<script>
-			function w3_open() {
-				document.getElementById("mySidebar").style.display = "block";
-			}
-			function w3_close() {
-				document.getElementById("mySidebar").style.display = "none";
-			}
-		</script>
+        <link rel="stylesheet" href="./css/materialize.min.css">
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="./js/materialize.min.js"></script>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
-    <body>
-	
-	<!-- Sidebar -->
-	<div class="w3-sidebar w3-bar-block w3-dark-grey w3-animate-left" style="display:none" id="mySidebar">
-		<button class="w3-bar-item w3-button w3-large"
-		onclick="w3_close()">Close &times;</button>
-		<a href="#" class="w3-bar-item w3-button">홈</a>
-		<a href="#" class="w3-bar-item w3-button">외출/현장체험학습 신청</a>
-		<a href="#" class="w3-bar-item w3-button">노래 신청</a>
-		<a href="#" class="w3-bar-item w3-button">분실물 등록</a>
-	</div>
-
-	<!-- Page Content -->
-	<div>
-		<div class="w3-container w3-teal" style="display: flex;">
-			<button class="w3-button w3-xxlarge" onclick="w3_open()">&#9776;</button>
-			<h1>메인 페이지</h1>
+	<body>
+	<nav class="default" role="navigation">
+		<div class="nav-wrapper">
+			<a href="#!" class="brand-logo center">Brand</a>
+			<a href="#" data-activates="mobile-demo" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
+			<ul class="right hide-on-med-and-down">
+				<li><a href="#">Login</a></li>
+				<li><a class="waves-effect red waves-light btn">Sign up</a></li>
+			</ul>
+			<ul class="side-nav" id="mobile-demo">
+				<li><a href="./main">홈</a></li>
+				<li><a href="./main">외출/현장체험학습 신청</a></li>
+				<li><a href="./main">노래 신청</a></li>
+				<li><a href="./main">분실물 등록</a></li>
+			</ul>
 		</div>
-	</div>
-    </body>
+		</nav>
+	</body>
+	<script>
+		$('.button-collapse').sideNav({
+		  menuWidth: 300, // Default is 240
+		  edge: 'left', // Choose the horizontal origin
+		  closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+		});
+	</script>
 </html>

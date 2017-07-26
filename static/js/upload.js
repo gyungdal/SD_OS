@@ -1,4 +1,4 @@
-<script>
+
    $(document).ready(function(){
                 var fileTarget = $('.filebox .upload-hidden');
 
@@ -13,7 +13,7 @@
                 var filename = $(this).val().split('/').pop().split('\\').pop();
             };
 
-                $(this).siblings('.upload-name').val(filename);
+                $(this).siblings('.upn').val(filename);
             });
 
             //preview image
@@ -46,4 +46,3 @@
             }
         });
         });
-</script>
