@@ -37,6 +37,7 @@
 		</nav>
 		<div class="wrap"><br><br>
 		<form id="data" action="" method="post">
+		<div style="width:40%; float:left">
 		<label>물건 이름</label>
           <fieldset>
             <input placeholder="물건이름" type="text" required autofocus>
@@ -53,11 +54,33 @@
 		  <fieldset>
             <input placeholder="장소" type="text" required>
 		  </fieldset>
+		</div>
+		<div style="width:10%; float:right">
+		&nbsp;
+		</div>
+		<div style="width:40%; float:right">
+
+		<fieldset>
+		  <label>파일 첨부</label>
+            <div class="filebox bs3-primary preview-image">
+			
+              <input class="upn" value="선택된 파일 없음!" style="width: 75%" disabled="disabled">
+              <label for="input_file" style="color:#FFF; width: 23%; text-align:center">업로드</label>
+              <input type="file" id="input_file" class="upload-hidden">
+            </div>
+          </fieldset>
+		
+
+
 			<fieldset>
               <button type="submit" class="waves-effect red waves-light btn">확인</button>
             </fieldset>
+		</div>
+		
       </form>
 	  </div>
+	</div>
+
 	</body>
 	<script>
 		$('.button-collapse').sideNav({
