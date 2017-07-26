@@ -54,3 +54,61 @@ a{
 .btn_for_margin{
     margin-top: 20%;
 }
+
+.minus_point{
+    width: 25%;
+    height: 15%;
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 3%;
+    margin-top: 1%;
+    margin-left: 5%;
+    box-shadow: 5px 5px 2px grey;
+}
+
+.game{
+    width: 25%;
+    height: 15%;
+    border: 1px solid black;
+    border-radius: 3%;
+    display: inline-block;
+    margin-top: 1%;
+    margin-left: 5%;
+    box-shadow: 5px 5px 2px gray;
+}
+
+.song{
+    width: 25%;
+    height: 15%;
+    border: 1px solid black;
+    border-radius: 3%;
+    display: inline-block;
+    margin-top: 1%;
+    margin-left: 5%;
+    box-shadow: 5px 5px 2px grey;
+}
+
+#notice_1{
+    border: 1px solid black;
+    width: 30%;
+    height: 50%;
+    margin-left: 13%;
+    margin-top: 3%;
+    display: inline-block;
+    border-radius: 5%;
+}
+
+#notice_2{
+    border: 1px solid black;
+    width: 30%;
+    height: 50%;
+    margin-left: 13%;
+    margin-top: 3%;
+    display: inline-block;
+    border-radius: 5%;
+}
+
+h4{
+    padding-left: 3%;
+    padding-top: 1%;
+}
