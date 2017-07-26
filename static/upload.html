@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <title>외출증</title>
+    <link href="css/field.css" rel="stylesheet"/>
+    <link href="css/upload.css" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/upload.js"></script>
+  </head>
+
+  <body>
+    <div style="width:100%">
+      <form id="data" action="" method="post">
+        <div style="float: left; width:47%; height:50%;">
+          <fieldset>
+            <input placeholder="이름" type="text" required autofocus>
+            <input placeholder="날짜" type="text" required>
+            <input placeholder="장소" type="text" required>
+            <div class="filebox bs3-primary preview-image">
+              <input class="upload-name" value="파일선택" disabled="disabled" style="width: 80%;">
+              <label for="input_file" style="text-align: center">업로드</label>
+              <input type="file" id="input_file" class="upload-hidden">
+            </div>
+          </fieldset>
+        </div>
+        <div style="float: right; width:47%; height:50%;">
+          <div class="">
+            <fieldset>
+              <textarea placeholder="사유" required></textarea>
+              <button type="submit" id="sub">확인</button>
+            </fieldset>
+          </div>
+        </div>
+      </form>
+    </div>
+
+
+  </body>
+
+</html>
