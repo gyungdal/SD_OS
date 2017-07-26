@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>main page</title>
+        <title>외출/현장체험학습 신청</title>
         <meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="http://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css">
@@ -21,7 +21,7 @@
 	<body>
 	<nav class="default" role="navigation">
 		<div class="nav-wrapper">
-			<a href="#!" class="brand-logo center">SDOS</a>
+			<a href="#!" class="brand-logo center">외출/현장체험학습 신청</a>
 			<a href="#" data-activates="mobile-demo" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
 			<ul class="right hide-on-med-and-down">
 				<li><a href="#">Login</a></li>
@@ -29,42 +29,41 @@
 			</ul>
 			<ul class="side-nav" id="mobile-demo">
 				<li><a href="./main">홈</a></li>
-				<li><a href="./main">외출/현장체험학습 신청</a></li>
-				<li><a href="./main">노래 신청</a></li>
-				<li><a href="./main">분실물 등록</a></li>
+				<li><a href="./gogo.html">외출/현장체험학습 신청</a></li>
+				<li><a href="./song.html">노래 신청</a></li>
+				<li><a href="./lostFound.html">분실물 등록</a></li>
 			</ul>
 		</div>
 		</nav>
 		<div class="wrap"><br><br>
-		<form id="data" action="" method="post">
+		<form action="./upload/gogo" enctype="multipart/form-data" method="post">
 		<label>이름 입력</label>
           <fieldset>
-            <input placeholder="이름" type="text" required autofocus>
+            <input name="name"  placeholder="이름" type="text" required autofocus>
 		  </fieldset>
 		  <fieldset>
 		  <label>외출 일시</label>
-            <input placeholder="날짜" type="date" required>
+            <input name="start_date"  placeholder="날짜" type="date" required>
 		  </fieldset>
 		  <fieldset>
 		  <label>귀사 일시</label>
-            <input placeholder="날짜" type="date" required>
+            <input name="end_date" placeholder="날짜" type="date" required>
 		  </fieldset>
 		  <label>외출 장소</label>
 		  <fieldset>
-            <input placeholder="장소" type="text" required>
+            <input name="place" placeholder="장소" type="text" required>
 		  </fieldset>
 		  <fieldset>
 		  <label>파일 첨부</label>
             <div class="filebox bs3-primary preview-image">
-			
               <input class="upn" value="선택된 파일 없음!" style="width: 75%;" disabled="disabled">
               <label for="input_file" style="color:#FFF; width: 23%; text-align:center">업로드</label>
-              <input type="file" id="input_file" class="upload-hidden">
+              <input name="file" type="file" id="input_file" class="upload-hidden">
             </div>
           </fieldset>
 		  <label>외출 사유</label>
             <fieldset>
-              <textarea placeholder="사유" required></textarea>
+              <textarea name="reason" placeholder="사유" required></textarea>
 			</fieldset>
 			<fieldset>
               <button type="submit" class="waves-effect red waves-light btn">확인</button>

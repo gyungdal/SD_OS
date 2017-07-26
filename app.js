@@ -4,64 +4,104 @@ var request = require('request');
 var mysql = require('mysql');
 var bodyParser = require('body-parser');
 var utf8 = require('utf8');
+var multer = require('multer'); // express에 multer모듈 적용 (for 파일업로드)
+var upload = multer({ dest: 'photo/' })
+var upload = multer({ dest: 'document/' })
 
-//app.use(bodyParser.json());
+
+//	app.use(express.bodyParser());
 
 var pool  = mysql.createPool({
 	host     : 'localhost',
 	port     : 3306, 
 	user     : 'root',
 	password : require('./config').password,
-	database : 'SW_CAMP'
+	database : 'camp'
 });
 
-app.use(express.static('static'));
+require('./main.js').init(app, pool);
+require('./adminPage.js').init(app, pool);
+
+app.use('/photo', express.static('photo'));
+app.use('/document', express.static('document'));
+app.use('/', express.static('static'));
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
 });
 
-app.all('/', function (req, res) {
-    console.log(req.path);
-    res.send("Hello World!");
-
-});
-
-//TODO : 로그 저장 필요
-
-//getTeacher 과 같은 함수
-app.all('/tt', function (req, res) {
-
+//탈출
+app.post('/upload/gogo', upload.single('file'), function(req, res){
+	console.log(req.body.reason);
+	console.log(req.body.place);
+	console.log(req.body.name);
+	console.log(req.body.start_date);
+	console.log(req.body.end_date);
+	console.log(req.file.path);
+	res.send('<script>history.go(-2);</script>');
 	pool.getConnection(function(err, connection) {
-	  // Use the connection 
-	  connection.query('SELECT something FROM sometable', function (error, results, fields) {
-		// And done with the connection. 
-		connection.release();
-	 
-		// Handle error after the release. 
-		if (error) throw error;
-	 
-		// Don't use the connection here, it has been returned to the pool. 
-	  });
+		connection.query( 'INSERT INTO GOGO(NAME, GO_DATE, END_DATE, PLACE, REASON, FILE_URL) VALUES('
+		+ mysql.escape(req.body.name) + ', ' 
+		+ mysql.escape(req.body.start_date) + ', ' 
+		+ mysql.escape(req.body.end_date) + ', ' 
+		+ mysql.escape(req.body.place) + ', ' 
+		+ mysql.escape(req.body.reason) + ', ' 
+		+ mysql.escape(req.file.path) + ')' , function(err, rows) {
+			connection.release();
+		});
 	});
-    console.log(req.path);
-    var id = req.body.ID;
-    var pw = req.body.PW;
-	var sql = 'SELECT TEACHER_DATA.TEACHER_UUID TEACHER_UUID, TEACHER_DATA.TEACHER_NAME TEACHER_NAME, ' 
-	+ 'PERMISSION_DATA.STUDENT_MANAGE STUDENT_MANAGE, PERMISSION_DATA.SCORE_MANAGE SCORE_MANAGE FROM TEACHER_DATA JOIN PERMISSION_DATA ON PERMISSION_DATA.PERMISSION_TYPE = TEACHER_DATA.PERMISSION_TYPE WHERE TEACHER_DATA.ID = '
-	+ mysql.escape(id) + ' AND TEACHER_DATA.PW = ' + mysql.escape(pw);
-    res.header("Content-Type", "application/json; charset=utf-8");
-	console.log(sql);
-    var query = connection.query(sql, function (err, rows) {
-        if (err) {
-			saveLog(rows[0].TEACHER_UUID, req.path, sql, 0);
-            throw err;
-        }
-        res.json(rows[0]);
-		if(rows[0] != null)
-			saveLog(rows[0].TEACHER_UUID, req.path, sql, 1);
-    });
 });
+
+//게임 경고 현황 설정
+app.post('/set/pc_count', function(req, res){
+	console.log(req.body.count);
+	res.send('<script>history.go(-2);</script>');
+	var fs = require('fs');
+	fs.writeFile('./count.txt', req.body.count, function(err) {
+		if(err) throw err;
+		console.log('File write completed');
+	});
+});
+
+//잃어버린 목록
+app.post('/upload/lost', upload.single('file'), function(req, res){
+	console.log(req.body.name);
+	console.log(req.body.thing_name);
+	console.log(req.body.get_place);
+	console.log(req.body.store_place);
+	console.log(req.body.date);
+	console.log(req.file.path);
+	res.send('<script>history.go(-2);</script>');
+	var sql = 'INSERT INTO LOST(NAME, GET_NAME, GET_DATE, GET_PLACE, STORE_PLACE, PHOTO_URL) VALUES ('
+			+ mysql.escape(req.body.name) + ', ' + mysql.escape(req.body.thing_name) + ', '
+			+ mysql.escape(req.body.date) + ', ' + mysql.escape(req.body.get_place) + ', ' 
+			+ mysql.escape(req.body.store_place) + ', '	+ mysql.escape(req.file.path) + ')';
+			
+	console.log(sql);
+	pool.getConnection(function(err, connection) {
+		connection.query(sql, function(err, rows) {
+			connection.release();
+
+		});
+	});
+});
+
+//노래 신청
+app.post('/request/song', upload.single('file'), function(req, res){
+	console.log(req.body.name);
+	console.log(req.body.song_title);
+	console.log(req.body.date);
+	res.send('<script>history.go(-2);</script>');
+	pool.getConnection(function(err, connection) {
+		connection.query( 'INSERT INTO SONG(SONG_NAME, PLAY_DATE) VALUES(' +
+			mysql.escape(req.body.song_title) + ', ' + 
+			mysql.escape(req.body.date) + ')', function(err, rows) {
+			connection.release();
+
+		});
+	});
+});
+
 
 app.get('/dynamic', function(req, res){
   var lis = '';
