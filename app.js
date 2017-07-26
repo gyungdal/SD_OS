@@ -5,8 +5,8 @@ var mysql = require('mysql');
 var bodyParser = require('body-parser');
 var utf8 = require('utf8');
 var multer = require('multer'); // express에 multer모듈 적용 (for 파일업로드)
-var upload = multer({ dest: 'photo/' })
-var upload = multer({ dest: 'document/' })
+var photo = multer({ dest: 'photo/' })
+var doc = multer({ dest: 'document/' })
 
 
 //	app.use(express.bodyParser());
@@ -32,7 +32,7 @@ app.listen(3000, function () {
 });
 
 //탈출
-app.post('/upload/gogo', upload.single('file'), function(req, res){
+app.post('/upload/gogo', doc.single('file'), function(req, res){
 	console.log(req.body.reason);
 	console.log(req.body.place);
 	console.log(req.body.name);
@@ -54,7 +54,7 @@ app.post('/upload/gogo', upload.single('file'), function(req, res){
 });
 
 //게임 경고 현황 설정
-app.post('/upload/pc_count', upload.single('file'), function(req, res){
+app.post('/upload/pc_count', photo.single('file'), function(req, res){
 	var fs = require('fs');
 	fs.writeFile('./count.txt', req.body.count, function(err) {
 		if(err) throw err;
@@ -63,7 +63,7 @@ app.post('/upload/pc_count', upload.single('file'), function(req, res){
 	});
 });
 
-app.post('/upload/alert', upload.single('file'), function(req, res){
+app.post('/upload/alert', photo.single('file'), function(req, res){
 	pool.getConnection(function(err, connection) {
 		connection.query( 'INSERT INTO NOTICE(TEXT) VALUES('
 		+ mysql.escape(req.body.str) + ')' , function(err, rows) {
@@ -74,7 +74,7 @@ app.post('/upload/alert', upload.single('file'), function(req, res){
 	});
 });
 
-app.post('/upload/score', upload.single('file'), function(req, res){
+app.post('/upload/score', photo.single('file'), function(req, res){
 	var sql = "INSERT INTO STUDENT (NUM, NAME, BAD_SCORE) VALUES (" + mysql.escape(req.body.number) + ','  +mysql.escape(req.body.name) + ',' 
 	+ mysql.escape(req.body.score) + ") ON DUPLICATE KEY UPDATE NUM=" + mysql.escape(req.body.number) + ", NAME=" 
 	+ mysql.escape(req.body.name) + ', BAD_SCORE=' + mysql.escape(req.body.score);
@@ -88,7 +88,7 @@ app.post('/upload/score', upload.single('file'), function(req, res){
 });
 
 //잃어버린 목록
-app.post('/upload/lost', upload.single('file'), function(req, res){
+app.post('/upload/lost', photo.single('file'), function(req, res){
 	console.log(req.body.name);
 	console.log(req.body.thing_name);
 	console.log(req.body.get_place);
@@ -111,7 +111,7 @@ app.post('/upload/lost', upload.single('file'), function(req, res){
 });
 
 //노래 신청
-app.post('/request/song', upload.single('file'), function(req, res){
+app.post('/request/song', photo.single('file'), function(req, res){
 	console.log(req.body.name);
 	console.log(req.body.song_title);
 	console.log(req.body.date);
