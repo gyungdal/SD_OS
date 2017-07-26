@@ -30,7 +30,7 @@
                 var reader = new FileReader();
                 reader.onload = function(e){
                     var src = e.target.result;
-                    parent.prepend('<div class="upload-display"><div class="upload-thumb-wrap"><img src="'+src+'" class="upload-thumb"></div></div>');
+                    parent.prepend('<div class="upload-display"><div style="width:100%" class="upload-thumb-wrap"><img src="'+src+'" class="upload-thumb"></div></div>');
                 }
                 reader.readAsDataURL($(this)[0].files[0]);
             }
