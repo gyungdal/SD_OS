@@ -3,6 +3,13 @@
 
 <html>
     <head>
+		<style>
+		.wrap {
+    width:85%;
+    margin:0 auto;
+
+  }
+		</style>
         <title>외출증</title>
         <meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,13 +46,19 @@
 			<button class="w3-button w3-xxlarge" onclick="w3_open()">&#9776;</button>
 			<h1>외출증 & 현장체험학습 신청서</h1>
 		</div>
-		<div style="width:100%">
+		<div class="wrap" >
       <form id="data" action="" method="post">
         <div style="float: left; width:47%; height:50%;">
           <fieldset>
             <input placeholder="이름" type="text" required autofocus>
+		  </fieldset>
+		  <fieldset>
             <input placeholder="날짜" type="text" required>
+		  </fieldset>
+		  <fieldset>
             <input placeholder="장소" type="text" required>
+		  </fieldset>
+		  <fieldset>
             <div class="filebox bs3-primary preview-image">
               <input class="upload-name" value="파일선택" disabled="disabled" style="width: 80%;">
               <label for="input_file" style="text-align: center">업로드</label>
@@ -57,6 +70,8 @@
           <div class="">
             <fieldset>
               <textarea placeholder="사유" required></textarea>
+			</fieldset>
+			<fieldset>
               <button type="submit" id="sub">확인</button>
             </fieldset>
           </div>
