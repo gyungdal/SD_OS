@@ -5,43 +5,33 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="http://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css">
         <link rel="stylesheet" href="./css/materialize.min.css">
-		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <script type="text/javascript" src="./materialize.min.js"></script>
-		<script type="text/javascript">
-		$('.button-collapse').sideNav({
-			  menuWidth: 300, // Default is 240
-			  closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
-			}
-		  );
-		  $('.collapsible').collapsible();
-		</script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="../js/materialize.min.js"></script>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
-    <body>
-	<nav>
-	  <ul class="hide-on-med-and-down">
-		<li><a href="#!">First Sidebar Link</a></li>
-		<li><a href="#!">Second Sidebar Link</a></li>
-	  </ul>
-	  <ul id="slide-out" class="side-nav fixed">
-		  <li class="bold"><a href="#!" class="waves-effect waves-teal">First Sidebar Link</a></li>
-		  <li class="bold"><a href="#!" class="">Second Sidebar Link</a></li>
-		  <li class="no-padding">
-			<ul class="collapsible collapsible-accordion">
-			  <li>
-				<a class="collapsible-header waves-effect waves-teal">Dropdown<i class="mdi-navigation-arrow-drop-down"></i></a>
-				<div class="collapsible-body">
-				  <ul>
-					<li><a href="#!">First</a></li>
-					<li><a href="#!">Second</a></li>
-					<li><a href="#!">Third</a></li>
-					<li><a href="#!">Fourth</a></li>
-				  </ul>
-				</div>
-			  </li>
+	<body>
+	<nav class="default" role="navigation">
+		<div class="nav-wrapper">
+			<a href="#!" class="brand-logo center">Brand</a>
+			<a href="#" data-activates="mobile-demo" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
+			<ul class="right hide-on-med-and-down">
+				<li><a href="#">Login</a></li>
+				<li><a class="waves-effect red waves-light btn">Sign up</a></li>
 			</ul>
-		  </li>
-		</ul>
-	  <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-	</nav>
-    </body>
+			<ul class="side-nav" id="mobile-demo">
+				<li><a href="./main">홈</a></li>
+				<li><a href="./main">외출/현장체험학습 신청</a></li>
+				<li><a href="./main">노래 신청</a></li>
+				<li><a href="./main">분실물 등록</a></li>
+			</ul>
+		</div>
+		</nav>
+	</body>
+	<script>
+		$('.button-collapse').sideNav({
+		  menuWidth: 300, // Default is 240
+		  edge: 'left', // Choose the horizontal origin
+		  closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+		});
+	</script>
 </html>
