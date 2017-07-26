@@ -1,0 +1,162 @@
+<html>
+    <head>
+        <title>main page</title>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="http://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css">
+        <link rel="stylesheet" href="./css/materialize.css">
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="./js/materialize.js"></script>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	</head>
+	<body>
+	<nav class="default" role="navigation">
+		<div class="nav-wrapper" style="background-color:#191919;">
+			<a href="#!" class="brand-logo center">Brand</a>
+			<a href="#" data-activates="mobile-demo" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
+			<ul class="right hide-on-med-and-down">
+				<li><a href="#">Login</a></li>
+				<li><a class="waves-effect red waves-light btn">Sign up</a></li>
+			</ul>
+			<ul class="side-nav" id="mobile-demo">
+				<li><a href="./main">홈</a></li>
+				<li><a href="./main">외출/현장체험학습 신청</a></li>
+				<li><a href="./main">노래 신청</a></li>
+				<li><a href="./main">분실물 등록</a></li>
+			</ul>
+		</div>
+		</nav>
+	  
+	  
+		 <div class="row">
+        <div class="col s4 m4">
+          <div class="card darken-1">
+            <div class="card-content white-text">
+              <span  style="color:black;"  class="card-title">1학년</span>
+              <table>
+        <thead>
+          <tr>
+              <th>학번</th>
+              <th>이름</th>
+              <th>벌점</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>10419</td>
+            <td>조남현</td>
+            <td>6</td>
+          </tr>
+          <tr>
+            <td>10418</td>
+            <td>홍길동</td>
+            <td>156</td>
+          </tr>
+          <tr>
+            <td>10417</td>
+            <td>임꺽정</td>
+            <td>0</td>
+          </tr>
+		   <tr>
+            <td>3명</td>
+            <td></td>
+            <td>7점</td>
+          </tr>
+        </tbody>
+      </table>
+            </div>
+          </div>
+        </div>
+		
+		
+        <div class="col s4 m4">
+          <div class="card darken-1">
+            <div class="card-content white-text">
+              <span style="color:black;"  class="card-title">2학년</span>
+              <table>
+        <thead>
+          <tr>
+              <th>학번</th>
+              <th>이름</th>
+              <th>벌점</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>20101</td>
+            <td>김동현</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>20102</td>
+            <td>김경민</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>20103</td>
+            <td>홍준서</td>
+            <td>3</td>
+          </tr>
+		  <tr>
+			<td>3명</td>
+			<td></td>
+			<td>6점</td>
+		  </tr>
+        </tbody>
+      </table>
+            </div>
+          </div>
+        </div>
+		
+		
+        <div class="col s4 m4">
+          <div class="card  darken-1">
+            <div class="card-content white-text">
+              <span style="color:black;" class="card-title">3학년</span>
+             <table>
+        <thead>
+          <tr>
+              <th>학번</th>
+              <th>이름</th>
+              <th>벌점</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>30101</td>
+            <td>김경식</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>30102</td>
+            <td>김정수</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>30103</td>
+            <td>김둘리</td>
+            <td>3</td>
+          </tr>
+		   <tr>
+            <td>3명</td>
+            <td></td>
+            <td>6점</td>
+          </tr>
+        </tbody>
+      </table>
+            </div>
+          </div>
+        </div>
+      </div>
+	</body>
+	<script>
+		$('.button-collapse').sideNav({
+		  menuWidth: 300, // Default is 240
+		  edge: 'left', // Choose the horizontal origin
+		  closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+		});
+	</script>
+</html>
